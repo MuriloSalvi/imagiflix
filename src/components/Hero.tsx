@@ -3,7 +3,7 @@ import React from "react";
 import { faPlay, faPlus } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-const Hero = ({title = 'Avengers Lixo', grade = 10 })=>{
+const Hero = ({title = 'Avengeiros', grade = 8 })=>{
   
 const getBorderColor = ()=>{
   if (grade === 10) {
@@ -19,12 +19,15 @@ const getBorderColor = ()=>{
 }
 
   return(
-    <header className='relative min-h-screen'>
+    <header className='box-border relative min-h-screen -mb-64' >
       <img 
-      className='w-full object-center background-cover'
+      className='object-cover h-auto w-full'
        src={banner} 
        alt='banner_image'/>
-       <article className='absolute bottom-0 mb-64 ml-28'>
+       <div className='absolute bottom-0 w-full h-full  bg-gradient-to-b from-transparent to-black'>
+
+       </div>
+       <article className='absolute bottom-32 mb-64 ml-28'>
          <p className='text-3xl'>Assista agora:</p>
          <h2 className='text-6xl font-extrabold'>{title}</h2>
          <p className='text-bas'>Nota <span className={`inline-block px-4 border-4 bg-black bg-opacity-75 rounded-full ${getBorderColor()}`}>{grade}</span></p>
