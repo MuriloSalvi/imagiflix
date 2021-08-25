@@ -19,7 +19,7 @@ interface CarouselData {
 
 const Carousel = ({
   title = "Filmes em destaque",
-  data = mockData,
+  data = mockData
 }: CarouselData) => {
   enum Direction {
     left,
@@ -55,7 +55,7 @@ const Carousel = ({
   };
   return (
     <section className="relative z-50">
-      <h2 className="relative z-10 text-2xl ml-8 py-2">{title}</h2>
+      <h2 className="relative z-10 text-2xl ml-8 py-3">{title}</h2>
       <Slider {...options}>
         {data.map((movie, index) => Poster(movie, index))}
       </Slider>
