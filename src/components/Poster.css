@@ -1,0 +1,7 @@
+.slick-slide:hover{
+  z-index: 10;
+  position: relative;
+}
+.poster:hover{
+  opacity: 1;
+}
