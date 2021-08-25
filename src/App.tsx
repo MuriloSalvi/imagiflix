@@ -16,6 +16,7 @@ const App = () => {
 
   const [movies , setMovies]:any = useState()
   const [series, setSeries]:any = useState()
+  const [score, setHighScore]:any = useState()
 
   useEffect(()=>{
     
@@ -27,16 +28,14 @@ const App = () => {
       const series = await fetch(`${URL}/discover/tv${APISTRING}&sort_by=popularity.desc`)
       const seriesData = await series.json()
       setSeries(seriesData)
+
+      const score = await fetch(`${URL}/discover/movie${APISTRING}&sort_by=vote_average.desc`)
+      const highScoreData = await score.json()
+      setHighScore(highScoreData)
     }
     fetchData();  
   },[]);
 
-  useEffect(()=>{
-    const fetchData = async ()=>{
-      
-    }
-    fetchData();
-  },[])
 
   useEffect(()=> movies && console.log(movies), [movies])
 
@@ -58,7 +57,7 @@ const App = () => {
       <Navbar />
       <Carousel title='filmes populares' data={getMovieList()}/>
       <Carousel title='Séries populares' data={series?.results}/>
-      <Carousel title='A'/>
+      <Carousel title='Aclamados pela critica' data={score?.results}/>
     </div>
   );
 };
