@@ -15,7 +15,7 @@ const Poster = ({ poster_path, title, name, vote_average }: Movie, index: number
   const {IMAGEURL} = CONST
   return(
     <article
-      className="relative transition-all duration-500 ease-in-out transform hover:scale-110"
+      className="relative mx-1 rounded  transition-all duration-500 ease-in-out transform hover:scale-110 w-full h-full"
       key={index}
     >
       <div className="poster cursor-pointer absolute py-8 px-4 top-0 w-full h-full grid place-items-center bg-black bg-opacity-75 transition-all duration-500 ease-in-out opacity-0">
@@ -24,7 +24,7 @@ const Poster = ({ poster_path, title, name, vote_average }: Movie, index: number
         <h2 className="text-xl text-center leading-4">{title? title : name}</h2>
         <Score value = {vote_average}/>
       </div>
-      <img src={`${IMAGEURL}/w185/${poster_path}`} alt={title} />
+      <img className='rounded-sm ' src={`${IMAGEURL}/w185/${poster_path}`} alt={title} />
     </article>
   )
 };

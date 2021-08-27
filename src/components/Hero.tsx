@@ -24,7 +24,7 @@ const Hero = ({backdrop_path = false, title = 'Avengeiros', vote_average = 10})=
        <article className='absolute bottom-32 mb-64 ml-28'>
          <p className='text-3xl'>Assista agora:</p>
          <h2 className='text-6xl font-extrabold'>{title}</h2>
-         <p className='text-bas'> Nota
+         <p className='text-bas p-4'> Nota
          <Score value = {vote_average}/>
          </p>
          <button className='text-base mr-4 mt-8 py-2 px-8 roundede bg-black bg-opacity-50 transition-all duration-500
