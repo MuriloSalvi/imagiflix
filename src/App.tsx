@@ -10,6 +10,7 @@ import "./App.css";
 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import Footer from "./components/Footer";
 
 const App = () => {
   const { URL,APISTRING } = CONST
@@ -58,6 +59,7 @@ const App = () => {
       <Carousel title='filmes populares' data={getMovieList()}/>
       <Carousel title='Séries populares' data={series?.results}/>
       <Carousel title='Aclamados pela critica' data={score?.results}/>
+      <Footer/>
     </div>
   );
 };
