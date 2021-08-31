@@ -5,12 +5,14 @@ import CONST from './data/constants'
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import Carousel from "./components/Carousel";
+import Footer from "./components/Footer";
+import LoadingModal from "./components/LoadingModal";
 
 import "./App.css";
 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import Footer from "./components/Footer";
+
 
 const App = () => {
   const { URL,APISTRING } = CONST
@@ -18,6 +20,8 @@ const App = () => {
   const [movies , setMovies]:any = useState()
   const [series, setSeries]:any = useState()
   const [score, setHighScore]:any = useState()
+
+  const [loadedMovie, setLoadedMovie] = useState(false)
 
   useEffect(()=>{
     
@@ -33,6 +37,8 @@ const App = () => {
       const score = await fetch(`${URL}/discover/movie${APISTRING}&sort_by=vote_average.desc`)
       const highScoreData = await score.json()
       setHighScore(highScoreData)
+
+      setLoadedMovie(true)
     }
     fetchData();  
   },[]);
@@ -52,16 +58,21 @@ const App = () => {
   }
   
 
-  return (
-    <div className="bg-black text-white m-auto antialised font-sans">
-      <Hero {...getFeaturedMovie()}/>
-      <Navbar />
-      <Carousel title='filmes populares' data={getMovieList()}/>
-      <Carousel title='Séries populares' data={series?.results}/>
-      <Carousel title='Aclamados pela critica' data={score?.results}/>
-      <Footer/>
-    </div>
-  );
-};
+  if(!loadedMovie){
+    return(
+      <LoadingModal/>
+    )}
+  else{
+    return(<div className="bg-black text-white m-auto antialised font-sans">
+    <Hero {...getFeaturedMovie()}/>
+    <Navbar />
+    <Carousel title='filmes populares' data={getMovieList()}/>
+    <Carousel title='Séries populares' data={series?.results}/>
+    <Carousel title='Aclamados pela critica' data={score?.results}/>
+    <Footer/>
+  </div>)
+  }
+  }
+;
 
 export default App;
