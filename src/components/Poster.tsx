@@ -11,7 +11,7 @@ import './Poster.css'
 
 
 
-const Poster = ({ poster_path, title, name, vote_average }: Movie, index: number) => {
+const Poster = ({ poster_path, title, name, vote_average,movie_id,tv_id }: Movie, index: number) => {
   const {IMAGEURL} = CONST
   return(
     <article
