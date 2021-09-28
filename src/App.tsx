@@ -20,6 +20,7 @@ const App = () => {
   const [movies , setMovies]:any = useState()
   const [series, setSeries]:any = useState()
   const [score, setHighScore]:any = useState()
+  const [loading, setLoading] = useState(true)
 
   const [loadedMovie, setLoadedMovie] = useState(false)
 
@@ -38,7 +39,11 @@ const App = () => {
       const highScoreData = await score.json()
       setHighScore(highScoreData)
 
+<<<<<<< Updated upstream
       setLoadedMovie(true)
+=======
+      setLoading(false)
+>>>>>>> Stashed changes
     }
     fetchData();  
   },[]);
@@ -58,6 +63,7 @@ const App = () => {
   }
   
 
+<<<<<<< Updated upstream
   if(!loadedMovie){
     return(
       <LoadingModal/>
@@ -74,5 +80,25 @@ const App = () => {
   }
   }
 ;
+=======
+  return (
+    <div className="bg-black text-white m-auto antialised font-sans">
+      {loading && 
+        <h1>Loading</h1>
+      }
+      {!loading && (
+      <>
+        <Hero {...getFeaturedMovie()}/>
+        <Navbar />
+        <Carousel title='filmes populares' data={getMovieList()}/>
+        <Carousel title='Séries populares' data={series?.results}/>
+        <Carousel title='Aclamados pela critica' data={score?.results}/>
+        <Footer/>
+      </>
+      )}
+    </div>
+  );
+};
+>>>>>>> Stashed changes
 
 export default App;

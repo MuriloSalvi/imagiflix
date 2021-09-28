@@ -33,7 +33,8 @@ const Navbar = () => {
       <div className="justify-self-end flex justify-items-end items-center mr-28">
         <form className="relative w-64">
           <input
-            className="w-full 
+            className="
+            w-0 
             bg-black
             px-4
             py-1 
@@ -41,11 +42,11 @@ const Navbar = () => {
             border-white 
             border-2
             transition-all
-            duration-300
+            duration-500
             ease-in-out
             opacity-0
-            hover:opacity-100
-            focus:opacity-100
+            hover:opacity-100 w-full
+            focus:opacity-100 w-full
             "
             type="text"
             placeholder="Titulos, gente e generos"
@@ -73,7 +74,7 @@ const Navbar = () => {
             transition-all
             duration-500
             ease-in-out
-            ${showMenu && "invisible opacity-0"}
+            ${showMenu && "invisible opacity-0 w-0 right-0 -mt-0"}
             `}
             onClick={handleClick}
           >
