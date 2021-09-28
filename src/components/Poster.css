@@ -1,5 +1,5 @@
 .slick-slide:hover{
-  z-index: 10;
+  z-index: 5;
   position: relative;
 }
 .poster:hover{

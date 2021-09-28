@@ -1,5 +1,3 @@
-import React from "react";
-
 import Slider from "react-slick";
 import Poster from "./Poster";
 
@@ -15,7 +13,7 @@ import './Carousel.css'
 interface CarouselData {
   title?: string;
   data?: Movie[];
-  getTitle?: ()=>void;
+  getTitle?: any;
 }
 
 const Carousel = ({
@@ -56,7 +54,7 @@ const Carousel = ({
     nextArrow: <SliderArrow direction={Direction.right} />,
   };
   return (
-    <section className="relative z-50">
+    <section className="relative z-30">
       <h2 className="relative z-10 text-2xl ml-8 py-3">{title}</h2>
       <Slider {...options}>
         {data.map((movie, index) => Poster(movie, index))}

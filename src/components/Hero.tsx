@@ -16,7 +16,7 @@ const Hero = ({backdrop_path = false, title = 'Avengeiros', vote_average = 10})=
     <header className='box-border relative min-h-screen -mb-64' >
       <img 
       className='object-cover h-auto w-full'
-       src = {backdrop_path ? `${IMAGEURL}w500/${backdrop_path}` : placeholder} 
+       src = {backdrop_path ? `${IMAGEURL}original/${backdrop_path}` : placeholder} 
        alt='banner_image'/>
        <div className='absolute bottom-0 w-full h-full  bg-gradient-to-b from-transparent to-black'>
 
